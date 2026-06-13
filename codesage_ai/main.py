@@ -2,17 +2,17 @@ from __future__ import annotations
 
 from pathlib import Path
 from fastapi import FastAPI, HTTPException, Query
-from acia.agents.orchestrator import RepositoryIntelligenceOrchestrator
-from acia.core.repository import validate_github_url
-from acia.models.schemas import RepositoryIngestRequest
+from codesage_ai.agents.orchestrator import RepositoryIntelligenceOrchestrator
+from codesage_ai.core.repository import validate_github_url
+from codesage_ai.models.schemas import RepositoryIngestRequest
 
-app = FastAPI(title="ACIA Repository Intelligence API", version="0.1.0")
+app = FastAPI(title="CodeSage AI Repository Intelligence API", version="0.1.0")
 orchestrator = RepositoryIntelligenceOrchestrator()
 
 
 @app.get("/health")
 def health() -> dict[str, bool | str]:
-    return {"ok": True, "service": "acia"}
+    return {"ok": True, "service": "codesage-ai"}
 
 
 @app.post("/api/v1/repositories/validate")

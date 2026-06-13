@@ -1,8 +1,8 @@
 from pathlib import Path
 import pytest
-from acia.core.repository import validate_github_url, detect_languages
-from acia.core.parser import parse_repository
-from acia.agents.retrieval import bm25_search
+from codesage_ai.core.repository import validate_github_url, detect_languages
+from codesage_ai.core.parser import parse_repository
+from codesage_ai.agents.retrieval import bm25_search
 
 
 def test_validate_github_url_accepts_canonical():

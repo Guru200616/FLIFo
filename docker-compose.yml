@@ -7,7 +7,7 @@ services:
     environment:
       NODE_ENV: production
       PORT: 8000
-      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/acia
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/codesage_ai
       REDIS_URL: redis://redis:6379
     depends_on:
       - postgres
@@ -18,7 +18,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: acia
+      POSTGRES_DB: codesage_ai
     ports:
       - "5432:5432"
     volumes:

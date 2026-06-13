@@ -1,5 +1,5 @@
 -- Core users + tenants + refresh-tokens + audit logs baseline
--- Adjust table names to match existing LIFO domain model before applying.
+-- Adjust table names to match existing CodeSage AI domain model before applying.
 
 CREATE EXTENSION IF NOT EXISTS "pgcrypto";
 

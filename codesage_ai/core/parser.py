@@ -4,8 +4,8 @@ import ast
 import hashlib
 import re
 from pathlib import Path
-from acia.core.repository import EXTENSION_LANGUAGE, iter_source_files
-from acia.models.schemas import CodeChunk, CodeSymbol
+from codesage_ai.core.repository import EXTENSION_LANGUAGE, iter_source_files
+from codesage_ai.models.schemas import CodeChunk, CodeSymbol
 
 
 def _chunk_id(repo: str, file_path: str, name: str, line: int) -> str:

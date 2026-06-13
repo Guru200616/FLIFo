@@ -3,7 +3,7 @@ from __future__ import annotations
 import ast
 from pathlib import Path
 import networkx as nx
-from acia.core.repository import iter_source_files
+from codesage_ai.core.repository import iter_source_files
 
 
 def build_import_graph(root: Path) -> nx.DiGraph:
