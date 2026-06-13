@@ -1,4 +1,4 @@
-# LIFO Production Hardening Roadmap (Execution-Ready)
+# CodeSage AI Production Hardening Roadmap (Execution-Ready)
 
 This repository currently does not contain the existing frontend/backend source files, so this document provides a concrete implementation blueprint and starter artifacts to execute your requested migration with minimal ambiguity.
 
@@ -31,7 +31,7 @@ Backend implementation checklist:
 - Ensure every read query excludes soft-deleted rows.
 
 ### 4) Remove default admin credentials
-- Remove hardcoded admin (`admin@lifo.com` / `admin123`).
+- Remove hardcoded admin (`admin@codesage.ai` / `admin123`).
 - Use setup-time seed from environment:
   - `SEED_ADMIN_EMAIL`
   - `SEED_ADMIN_PASSWORD`

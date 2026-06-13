@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import math, re
 from collections import Counter
-from acia.models.schemas import CodeChunk
+from codesage_ai.models.schemas import CodeChunk
 
 TOKEN = re.compile(r"[A-Za-z_][A-Za-z0-9_]+")
 

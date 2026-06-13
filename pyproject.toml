@@ -1,7 +1,7 @@
 [project]
-name = "acia"
+name = "codesage-ai"
 version = "0.1.0"
-description = "Autonomous Code Intelligence Agent: multi-agent repository intelligence platform"
+description = "CodeSage AI – Autonomous Code Intelligence Agent: enterprise AI repository intelligence platform"
 requires-python = ">=3.11"
 dependencies = [
   "fastapi>=0.111",

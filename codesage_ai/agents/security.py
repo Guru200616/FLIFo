@@ -2,8 +2,8 @@ from __future__ import annotations
 
 import re
 from pathlib import Path
-from acia.core.repository import iter_source_files
-from acia.models.schemas import SecurityFinding, Severity
+from codesage_ai.core.repository import iter_source_files
+from codesage_ai.models.schemas import SecurityFinding, Severity
 
 RULES = [
     ("Hardcoded secret", Severity.high, re.compile(r"(?i)(api[_-]?key|secret|password|token)\s*[:=]\s*['\"][^'\"]{8,}"), "Move secrets to encrypted secret storage and rotate exposed values."),

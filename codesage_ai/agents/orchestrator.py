@@ -1,12 +1,12 @@
 from __future__ import annotations
 
 from pathlib import Path
-from acia.agents.graph import build_import_graph, impacted_by
-from acia.agents.retrieval import bm25_search
-from acia.agents.security import scan_repository
-from acia.core.parser import parse_repository
-from acia.core.repository import detect_frameworks, detect_languages
-from acia.models.schemas import ChatAnswer, ImpactReport, RepositoryOverview
+from codesage_ai.agents.graph import build_import_graph, impacted_by
+from codesage_ai.agents.retrieval import bm25_search
+from codesage_ai.agents.security import scan_repository
+from codesage_ai.core.parser import parse_repository
+from codesage_ai.core.repository import detect_frameworks, detect_languages
+from codesage_ai.models.schemas import ChatAnswer, ImpactReport, RepositoryOverview
 
 
 class RepositoryIntelligenceOrchestrator:
