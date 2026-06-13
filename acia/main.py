@@ -5,6 +5,11 @@ from fastapi import FastAPI, HTTPException, Query
 from acia.agents.orchestrator import RepositoryIntelligenceOrchestrator
 from acia.core.repository import validate_github_url
 from acia.models.schemas import RepositoryIngestRequest
+from acia.agents.documentation import generate_documentation
+from acia.agents.flow import trace_execution_flow
+from acia.agents.pr_review import review_changed_files
+from acia.agents.summary import summarize_repository
+from acia.agents.test_generation import generate_tests
 
 app = FastAPI(title="ACIA Repository Intelligence API", version="0.1.0")
 orchestrator = RepositoryIntelligenceOrchestrator()
@@ -53,3 +58,44 @@ def impact_local(module: str, path: str = "."):
     if not root.exists() or not root.is_dir():
         raise HTTPException(status_code=404, detail="Repository path not found")
     return orchestrator.impact(root, module)
+
+
+
+@app.get("/api/v1/summary/local")
+def summary_local(path: str = "."):
+    root = Path(path).resolve()
+    if not root.exists() or not root.is_dir():
+        raise HTTPException(status_code=404, detail="Repository path not found")
+    return summarize_repository(root)
+
+
+@app.get("/api/v1/flows/local")
+def flows_local(flow: str, path: str = "."):
+    root = Path(path).resolve()
+    if not root.exists() or not root.is_dir():
+        raise HTTPException(status_code=404, detail="Repository path not found")
+    return trace_execution_flow(root, flow)
+
+
+@app.get("/api/v1/documentation/local")
+def documentation_local(path: str = "."):
+    root = Path(path).resolve()
+    if not root.exists() or not root.is_dir():
+        raise HTTPException(status_code=404, detail="Repository path not found")
+    return generate_documentation(root)
+
+
+@app.get("/api/v1/tests/local")
+def tests_local(path: str = ".", framework: str = "pytest"):
+    root = Path(path).resolve()
+    if not root.exists() or not root.is_dir():
+        raise HTTPException(status_code=404, detail="Repository path not found")
+    return generate_tests(root, framework)
+
+
+@app.post("/api/v1/pr-review/local")
+def pr_review_local(changed_files: list[str], path: str = "."):
+    root = Path(path).resolve()
+    if not root.exists() or not root.is_dir():
+        raise HTTPException(status_code=404, detail="Repository path not found")
+    return review_changed_files(root, changed_files)
